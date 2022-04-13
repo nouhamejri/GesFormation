@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-
+//AJ
 @Entity
 public class Cours implements Serializable {
 	private static final long serialVersionUID = 1L;
