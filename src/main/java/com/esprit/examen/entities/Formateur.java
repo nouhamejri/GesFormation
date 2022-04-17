@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 @Entity
 @AllArgsConstructor
@@ -112,7 +111,6 @@ public class Formateur implements Serializable{
 	}
 	public Formateur() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	

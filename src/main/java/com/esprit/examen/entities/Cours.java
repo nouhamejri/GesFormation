@@ -70,7 +70,6 @@ public class Cours implements Serializable {
 
 	public Cours(String description, TypeCours typeCours, String intitule) {
 		super();
-		this.id = id;
 		this.description = description;
 		this.typeCours = typeCours;
 		this.intitule = intitule;
