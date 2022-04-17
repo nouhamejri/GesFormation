@@ -24,14 +24,14 @@ ICoursService coursService;
 @PostMapping("/ajouterCours")
 @ResponseBody
 public Cours ajouterCours(@RequestBody Cours cours) {
-	coursService.addCours(cours);
+	coursService.SaveCours(cours);
 	return cours;
 }
 
 @PutMapping("/modifierCours")
 @ResponseBody
 public Cours modifierCours(@RequestBody Cours cours) {
-	coursService.addCours(cours);
+	coursService.SaveCours(cours);
 	return cours;
 }
 

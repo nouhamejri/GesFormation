@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-
+//AJ
 @Entity
 public class Cours implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -61,6 +61,14 @@ public class Cours implements Serializable {
 				+ intitule + "]";
 	}
 	public Cours(Long id, String description, TypeCours typeCours, String intitule) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.typeCours = typeCours;
+		this.intitule = intitule;
+	}
+
+	public Cours(String description, TypeCours typeCours, String intitule) {
 		super();
 		this.id = id;
 		this.description = description;
