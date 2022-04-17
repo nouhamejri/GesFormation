@@ -21,19 +21,13 @@ public class FormateurRestController {
 	@Autowired
 	IFormateurService formateurService;
 	
-	@PostMapping("/ajouterFormateur")
+	@PostMapping("/enregisterFormateur")
 	@ResponseBody
 	public Formateur ajouterFormateur(@RequestBody Formateur formateur) {
-		formateurService.addFormateur(formateur);
+		formateurService.addOrUpdateFormateur(formateur);
 		return formateur;
 	}
 
-	@PutMapping("/modifierFormateur")
-	@ResponseBody
-	public Formateur modifierFormateur(@RequestBody Formateur formateur) {
-		formateurService.addFormateur(formateur);
-		return formateur;
-	}
 
 	@DeleteMapping("/supprimerFormateur/{formateurId}")
 	@ResponseBody
@@ -47,4 +41,5 @@ public class FormateurRestController {
 		Long nombreFormateurs=formateurService.nombreFormateursImpliquesDansUnCours(typeCours);
 		return nombreFormateurs;
 	}
+	
 }
