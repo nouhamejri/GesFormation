@@ -1,4 +1,4 @@
-package com.esprit.examen;
+package com.esprit.examen.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
@@ -29,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class FormateurServiceImplTest {
+class FormateurServiceImplTest {
 	@Autowired
 	FormateurService fs;
 
