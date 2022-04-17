@@ -79,9 +79,9 @@ class FormateurServiceImplTest {
 	@Test
 	public void testNbreFormateurImpliqueDansCours() throws ParseException {
 		try {
-			assertNotNull(fs.nombreFormateursImpliquesDansUnCours(TypeCours.Informatique));
-			Long nbrBeforeAddingNewF = fs.nombreFormateursImpliquesDansUnCours(TypeCours.Informatique);
-			log.info("le nombre de fomateur ayant le type de cours informatique est: " + fs.nombreFormateursImpliquesDansUnCours(TypeCours.Informatique));
+			assertNotNull(fs.nombreFormateursImpliquesDansUnCours(TypeCours.INFORMATIQUE));
+			Long nbrBeforeAddingNewF = fs.nombreFormateursImpliquesDansUnCours(TypeCours.INFORMATIQUE);
+			log.info("le nombre de fomateur ayant le type de cours informatique est: " + fs.nombreFormateursImpliquesDansUnCours(TypeCours.INFORMATIQUE));
 			Formateur f = new Formateur();
 			f.setNom("testBenFoulen");
 			f.setPrenom("testFoulen");
@@ -94,9 +94,9 @@ class FormateurServiceImplTest {
 			setOfSessions.add(s);
 			f.setSessions(setOfSessions);
 			fs.addOrUpdateFormateur(f);
-			Long nbrAfterAddingNewF = fs.nombreFormateursImpliquesDansUnCours(TypeCours.Informatique); 
+			Long nbrAfterAddingNewF = fs.nombreFormateursImpliquesDansUnCours(TypeCours.INFORMATIQUE); 
 			assertThat(nbrAfterAddingNewF).isGreaterThan(nbrBeforeAddingNewF);
-			log.info("le nombre de fomateur ayant le type de cours informatique aprés avoir ajouté un nouveau formateur est: " + fs.nombreFormateursImpliquesDansUnCours(TypeCours.Informatique));
+			log.info("le nombre de fomateur ayant le type de cours informatique aprés avoir ajouté un nouveau formateur est: " + fs.nombreFormateursImpliquesDansUnCours(TypeCours.INFORMATIQUE));
 		} catch (Exception e) {
 			
 			log.error("exception: "+ e.getMessage());

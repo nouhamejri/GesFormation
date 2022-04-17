@@ -23,7 +23,7 @@ class CoursServiceTest {
 
     @Test
     void saveCours() {
-        Cours cours = new Cours("test description", TypeCours.Informatique, "test ");
+        Cours cours = new Cours("test description", TypeCours.INFORMATIQUE, "test ");
         Long id = iCoursService.SaveCours(cours);
         assertThat(id, greaterThan(0L));
         log.info("add complete");
