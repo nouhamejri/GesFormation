@@ -15,21 +15,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.esprit.examen.entities.Cours;
 import com.esprit.examen.entities.Formateur;
 import com.esprit.examen.entities.Session;
 import com.esprit.examen.entities.TypeCours;
 import com.esprit.examen.repositories.FormateurRepository;
 import com.esprit.examen.repositories.SessionRepository;
-import com.esprit.examen.services.FormateurService;
-import com.esprit.examen.services.SessionService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-class FormateurServiceImplTest {
+public class FormateurServiceImplTest {
 	@Autowired
 	FormateurService fs;
 
