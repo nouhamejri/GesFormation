@@ -9,33 +9,43 @@ import com.esprit.examen.entities.Formateur;
 import com.esprit.examen.entities.TypeCours;
 import com.esprit.examen.repositories.FormateurRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class FormateurService implements IFormateurService{
 
 	@Autowired
 	FormateurRepository formateurRepository;
-	@Override
-	public Long addFormateur(Formateur formateur) {
-		formateurRepository.save(formateur);
-		return formateur.getId();
-	}
 
 	@Override
-	public Long modifierFormateur(Formateur formateur) {
-		formateurRepository.save(formateur);
+	public Long addOrUpdateFormateur(Formateur formateur) {
+		try {
+			log.debug("Formateur to save: "+ formateur);
+			formateurRepository.save(formateur);
+			
+		}
+		catch (Exception e) {
+			log.error("error while saving Formateur: ", e.getMessage());
+		}
+		
 		return formateur.getId();
 	}
 
 	@Override
 	public void supprimerFormateur(Long formateurId) {
-		formateurRepository.deleteById(formateurId);
+		try {
+			formateurRepository.deleteById(formateurId);
+		}catch (Exception e) {
+			log.error("error while deleting Fromateur "+e.getMessage());
+		}
 		
 	}
 
 	@Override
 	public Long nombreFormateursImpliquesDansUnCours(TypeCours typeCours) {
-		return 0L;// formateurRepository.nombreFormateursImpliquesDansUnCours(typeCours);
-		
+		log.info("number of 'Fromateur' involved in a course of "+typeCours);
+		return formateurRepository.nombreFormateursImpliquesDansUnCours(typeCours);
 	}
 
 
