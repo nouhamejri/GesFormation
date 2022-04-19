@@ -1,15 +1,12 @@
 package com.esprit.examen.services;
 
 import java.util.List;
-import java.util.Set;
 
 import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.esprit.examen.entities.Cours;
-import com.esprit.examen.entities.Session;
 import com.esprit.examen.repositories.CoursRepository;
 import com.esprit.examen.repositories.SessionRepository;
 
