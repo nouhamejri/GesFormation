@@ -57,5 +57,5 @@ pipeline {
             failure {
                 emailext body: 'Error', subject: 'Jenkins Pipeline', to: 'aymen.jeljli@esprit.tn'
             }
-        }
+     }
 }
