@@ -74,32 +74,4 @@ class FormateurServiceImplTest {
 			log.error("un formateur avec un id: " + idF + " n'existe pas: " + e.getMessage());
 		}
 	}
-
-	
-	@Test
-	public void testNbreFormateurImpliqueDansCours() throws ParseException {
-		try {
-			assertNotNull(fs.nombreFormateursImpliquesDansUnCours(TypeCours.INFORMATIQUE));
-			Long nbrBeforeAddingNewF = fs.nombreFormateursImpliquesDansUnCours(TypeCours.INFORMATIQUE);
-			log.info("le nombre de fomateur ayant le type de cours informatique est: " + fs.nombreFormateursImpliquesDansUnCours(TypeCours.INFORMATIQUE));
-			Formateur f = new Formateur();
-			f.setNom("testBenFoulen");
-			f.setPrenom("testFoulen");
-			f.setAdmin(false);
-			fs.addOrUpdateFormateur(f);
-			Session s = sRepo.findById((long) 23552).orElse(null);
-			s.setFormateur(f);
-			sServ.modifierSession(s);
-			Set<Session> setOfSessions = new HashSet<Session>();
-			setOfSessions.add(s);
-			f.setSessions(setOfSessions);
-			fs.addOrUpdateFormateur(f);
-			Long nbrAfterAddingNewF = fs.nombreFormateursImpliquesDansUnCours(TypeCours.INFORMATIQUE); 
-			assertThat(nbrAfterAddingNewF).isGreaterThan(nbrBeforeAddingNewF);
-			log.info("le nombre de fomateur ayant le type de cours informatique aprés avoir ajouté un nouveau formateur est: " + fs.nombreFormateursImpliquesDansUnCours(TypeCours.INFORMATIQUE));
-		} catch (Exception e) {
-			
-			log.error("exception: "+ e.getMessage());
-		}
-	}
 }
