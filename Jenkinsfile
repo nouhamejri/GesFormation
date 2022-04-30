@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven "MAVEN_HOME"
+        maven 'MAVEN_HOME'
+        jdk 'JAVA_HOME'
     }
 
     stages {
@@ -11,7 +12,7 @@ pipeline {
 
                 git branch: 'AymenJELJLI', credentialsId: 'mygithub', url: 'https://github.com/nouhamejri/GesFormation.git'
 
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                bat 'mvn -Dmaven.test.failure.ignore=true clean package'
             }
 
             post {
@@ -25,7 +26,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat "mvn test"
+                bat 'mvn test'
             }
 
             post {
@@ -38,13 +39,13 @@ pipeline {
 
         stage('Sonar') {
             steps {
-                bat "mvn sonar:sonar"
+                bat 'mvn sonar:sonar'
             }
         }
 
         stage('Deploy') {
             steps {
-                bat "mvn deploy"
+                bat 'mvn deploy'
             }
         }
     }
