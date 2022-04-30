@@ -52,10 +52,10 @@ pipeline {
 
     post {
             always {
-                emailext body: 'Done', subject: 'Jenkins Pipeline', to: 'aymen.jeljli@esprit.tn'
+                mail body: 'Done', subject: 'Jenkins Pipeline', to: 'aymen.jeljli@esprit.tn'
             }
             failure {
-                emailext body: 'Error', subject: 'Jenkins Pipeline', to: 'aymen.jeljli@esprit.tn'
+                mail body: 'Error', subject: 'Jenkins Pipeline', to: 'aymen.jeljli@esprit.tn'
             }
      }
 }
