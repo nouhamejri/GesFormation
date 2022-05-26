@@ -48,6 +48,12 @@ pipeline {
                 bat 'mvn deploy'
             }
         }
+
+        stage('Docker') {
+            steps {
+                bat 'docker-compose up'
+            }
+        }
     }
 
     post {
