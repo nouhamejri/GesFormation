@@ -1,31 +1,31 @@
-version: "3"
+version: "3.8"
 services:
   db:
     image: mysql:5.7
     restart: always
     environment:
-      - MYSQL_DATABASE= 'testf'
-      - MYSQL_ROOT_PASSWORD= ''
+      - MYSQL_DATABASE= testF      
+      - MYSQL_ROOT_PASSWORD=
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-
+    container_name: db
+    hostname: db
     ports:
-      - '3308:3306'
-    expose:
-      - '3308'
+      - "3308:3306"
     networks:
-      esprit:
+      - esprit
     volumes:
       - my-db:/var/lib/mysql
   
   gestFormServer:
     build: ./
     image: gestform
+    container_name: gestFormServer
     ports:
       - "8091:8090"
     restart: always
     environment:
       SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url"  : "jdbc:mysql://localhost:3306/ testF? useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false",
+        "spring.datasource.url"  : "jdbc:mysql://db:3306/testF?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false",
         "spring.datasource.username" : "root",
         "spring.datasource.password" : "",
         "spring.datasource.initialization-mode": "always",
@@ -33,8 +33,11 @@ services:
         "spring.jpa.hibernate.ddl-auto" : "update"}'
     depends_on:
       - db
+    links:
+      - db
     networks:
-      esprit:
+      - esprit
+
 networks:
   esprit:
     driver: bridge
