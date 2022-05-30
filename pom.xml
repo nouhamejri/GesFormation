@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>GesF</artifactId>
-	<version>1.7</version>
+	<version>1.8</version>
 	<name>GesF</name>
 	<description>springBootProjectbyAJ</description>
 	<properties>
@@ -84,7 +84,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-        <finalName>gesfapp</finalName>
+        <finalName>GesFapp</finalName>
 	</build>
 	<distributionManagement>
 		<repository>
