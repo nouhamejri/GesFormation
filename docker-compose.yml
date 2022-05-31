@@ -19,6 +19,7 @@ services:
 
   app:
     container_name: app
+    image: app
     depends_on:
       - mysqldb
     build:
